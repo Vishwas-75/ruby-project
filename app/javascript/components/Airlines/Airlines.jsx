@@ -2,7 +2,7 @@ import React, { useState, useEffect, Fragment } from "react";
 import axios from "axios";
 
 import Airlinecard from "./Airlinecard";
-import { Container, Header, Rowcontainer, Colcontainer } from "./styles/Airlines.styled";
+import { Container, Header, Rowcontainer} from "./styles/Airlines.styled";
 
 function Airlines() {
   const [airlines, setAirlines] = useState([]);
@@ -20,13 +20,13 @@ function Airlines() {
       <Header>
         <h1>Flights Review</h1>
       </Header>
-      <Colcontainer>
+      <Rowcontainer>
         {airlines.map((airline) => (
           <Fragment key={airline.id}>
-            <Airlinecard airline={airline.attributes} />
+            <Airlinecard airline={airline.attributes}/>
           </Fragment>
         ))}
-      </Colcontainer>
+      </Rowcontainer>
     </Container>
   );
 }
