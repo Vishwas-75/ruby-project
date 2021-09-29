@@ -1,15 +1,20 @@
 Rails.application.routes.draw do
 
+ 
+  get 'about/index'
  root 'welcome#index'
 
   namespace :api do
     namespace :v1 do
-      resource :airlines, param: :slug
-      resource :airlinereviews, olnly: [:create, :destroy]
+      resources :airlines, param: :slug
+
+      resources :airlines do
+        resources :airlinereviews
+      end
     end
   end
 
-  get '*path', to: 'welecome#index', via: :all
+  get '*path', to: 'welcome#index', via: :all
   
 
 end
